@@ -8,10 +8,7 @@ import com.qa.alcohol.persistance.exceptions.CraftBeerNotFoundException;
 import com.qa.alcohol.persistance.domain.CraftBeer;
 import com.qa.alcohol.persistance.repository.CraftBeerRepo;
 import java.util.Optional;
-import java.util.stream.Collectors;
-
 import org.modelmapper.ModelMapper;
-import com.qa.alcohol.rest.dto.CraftBeerDTO;
 
 @Service
 public class CraftBeerService {
@@ -19,35 +16,30 @@ public class CraftBeerService {
 	@Autowired
 	private CraftBeerRepo repo;
 
-	@Autowired
-	private ModelMapper mapper;
+	//@Autowired
+	//private ModelMapper mapper;
 
 	public CraftBeerService(CraftBeerRepo repo, ModelMapper mapper) {
 		super();
 		this.repo = repo;
-		this.mapper = mapper;
+		//this.mapper = mapper;
 	}
 
-	@SuppressWarnings("unused")
-	private CraftBeerDTO mapToDTO(CraftBeer craftBeer) {
-		return this.mapper.map(craftBeer, CraftBeerDTO.class);
-	}
-
-	public CraftBeerDTO createCraftBeer(CraftBeer craftBeer) {
+	public CraftBeer createCraftBeer(CraftBeer craftBeer) {
 		CraftBeer saved = this.repo.save(craftBeer);
-		return this.mapToDTO(saved);
+		return saved;
 	}
 
-	public List<CraftBeerDTO> getAllCraftBeer() {
-		return this.repo.findAll().stream().map(this::mapToDTO).collect(Collectors.toList());
+	public List<CraftBeer> getAllCraftBeer() {
+		return this.repo.findAll();
 	}
 
-	public CraftBeerDTO getCraftBeer(Long id) {
+	public CraftBeer getCraftBeer(Long id) {
 		CraftBeer updated = this.repo.findById(id).get();
-		return this.mapToDTO(updated);
+		return updated;
 	}
 
-	public CraftBeerDTO updateCraftBeer(CraftBeer newCraftBeer, Long id) throws CraftBeerNotFoundException {
+	public CraftBeer updateCraftBeer(CraftBeer newCraftBeer, Long id) throws CraftBeerNotFoundException {
 		Optional<CraftBeer> existingOptional = this.repo.findById(id);
 		CraftBeer existing = existingOptional.get();
 
@@ -55,13 +47,14 @@ public class CraftBeerService {
 		existing.setBrewery(newCraftBeer.getBrewery());
 		existing.setDescription(newCraftBeer.getDescription());
 		existing.setAbv(newCraftBeer.getAbv());
+		existing.setContainer(newCraftBeer.getContainer());
 		existing.setSize(newCraftBeer.getSize());
 		existing.setVegan(newCraftBeer.isVegan());
 		existing.setGlutenFree(newCraftBeer.isGlutenFree());
 		existing.setPrice(newCraftBeer.getPrice());
 
 		CraftBeer updated = this.repo.save(existing);
-		return this.mapToDTO(updated);
+		return updated;
 	}
 
 	public boolean deleteCraftBeer(Long id) {

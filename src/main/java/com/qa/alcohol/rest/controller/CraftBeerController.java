@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.qa.alcohol.persistance.domain.CraftBeer;
 import com.qa.alcohol.persistance.exceptions.CraftBeerNotFoundException;
-import com.qa.alcohol.rest.dto.CraftBeerDTO;
 import com.qa.alcohol.service.CraftBeerService;
 
 @RestController
@@ -31,24 +30,24 @@ public class CraftBeerController {
 
 	// CREATE
 	@PostMapping("/create")
-	public CraftBeerDTO createCraftBeer(@RequestBody CraftBeer craftBeer) {
+	public CraftBeer createCraftBeer(@RequestBody CraftBeer craftBeer) {
 		return this.service.createCraftBeer(craftBeer);
 	}
 
 	// READ
 	@GetMapping("/getall")
-	public List<CraftBeerDTO> getAllCraftBeer() {
+	public List<CraftBeer> getAllCraftBeer() {
 		return this.service.getAllCraftBeer();
 	}
 
 	@GetMapping("/get/{id}")
-	public CraftBeerDTO getCraftBeer(@PathVariable Long id) {
+	public CraftBeer getCraftBeer(@PathVariable Long id) {
 		return this.service.getCraftBeer(id);
 	}
 
 	// UPDATE
 	@PutMapping("/update/{id}")
-	public CraftBeerDTO updateCraftBeer(@RequestBody CraftBeer newCraftBeer, @PathVariable Long id)
+	public CraftBeer updateCraftBeer(@RequestBody CraftBeer newCraftBeer, @PathVariable Long id)
 			throws CraftBeerNotFoundException {
 		return this.service.updateCraftBeer(newCraftBeer, id);
 	}
