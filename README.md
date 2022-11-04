@@ -134,7 +134,7 @@ merge dev into main
 merge dev into main
 ![37 - merge dev into main](https://user-images.githubusercontent.com/111985454/200025656-b0f232d2-a9e2-4018-972a-1ce1fb3e1013.JPG)
 
-creat jar
+create jar
 ![38 - create jar file](https://user-images.githubusercontent.com/111985454/200029815-1ac8cefa-214c-4af2-9ff2-9adf1c7f370b.JPG)
 
 build jar file
@@ -145,3 +145,631 @@ push jar to github
 
 trello end
 ![trello 2](https://user-images.githubusercontent.com/111985454/200035332-a1124192-2165-401d-b78c-ceb5b67727ab.JPG)
+
+## MISC.
+##### error on testing, had to disable created enum
+![error on testing for had to disable enum](https://user-images.githubusercontent.com/111985454/200037078-14a95d3c-5efc-439b-b3e4-687642b6f40c.JPG)
+
+##### Error on github pushing, originally initialised in src/main and not the root fo project. Code below is copy of steps to correcting issue
+```
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project
+$ echo "# Project" >> README.md
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project
+$ 
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project
+$ git init
+Initialized empty Git repository in C:/Users/jesse/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project/.git/
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (main)
+$ 
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (main)
+$ git add README.md
+warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (main)
+$
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (main)
+$ git commit -m "first commit"
+[main (root-commit) f136f3c] first commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (main)
+$
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (main)
+$ git branch -M main
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (main)
+$
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (main)
+$ git remote add origin https://github.com/JesseJohal89/Project.git
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (main)
+$
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (main)
+$ git push -u origin main
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 222 bytes | 222.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/JesseJohal89/Project.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (main)
+$ git status
+On branch main
+        src/
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (main)
+$ git add .gitignore
+warning: in the working copy of '.gitignore', LF will be replaced by CRLF the next time Git touches it
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (main)
+$ git add .mvn/
+warning: in the working copy of '.mvn/wrapper/maven-wrapper.properties', LF will be replaced by CRLF the next time Git touches it
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (main)
+$ git add mvnw
+warning: in the working copy of 'mvnw', LF will be replaced by CRLF the next time Git touches it
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (main)
+$ git add mvnw.cmd 
+warning: in the working copy of 'mvnw.cmd', LF will be replaced by CRLF the next time Git touches it
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (main)
+$ git add pom.xml 
+warning: in the working copy of 'pom.xml', LF will be replaced by CRLF the next time Git touches it
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   .gitignore
+        new file:   .mvn/wrapper/maven-wrapper.jar
+        new file:   .mvn/wrapper/maven-wrapper.properties
+        new file:   mvnw
+        new file:   mvnw.cmd
+        new file:   pom.xml
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        lombok.config
+        src/
+
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (main)
+$ git add src/
+main/ test/ 
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (main)
+$ git add src/
+main/ test/ 
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (main)
+$ git add src/main/
+java/      resources/ 
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (main)
+$ git add src/main/java/com/qa/alcohol/
+config/                  persistance/             ProjectApplication.java  rest/                    service/
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (main)
+$ git add src/main/java/com/qa/alcohol/ProjectApplication.java 
+warning: in the working copy of 'src/main/java/com/qa/alcohol/ProjectApplication.java', LF will be replaced by CRLF the next time Git touches it
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (main)
+$ git add src/
+main/ test/ 
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (main)
+$ git add src/main/
+java/      resources/ 
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (main)
+$ git add src/main/resources/application.properties 
+warning: in the working copy of 'src/main/resources/application.properties', LF will be replaced by CRLF the next time Git touches it
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (main)
+$ git commit -m "init commit"
+[main 9dc38da] init commit
+ 8 files changed, 647 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 .mvn/wrapper/maven-wrapper.jar
+ create mode 100644 .mvn/wrapper/maven-wrapper.properties
+ create mode 100644 mvnw
+ create mode 100644 mvnw.cmd
+ create mode 100644 pom.xml
+ create mode 100644 src/main/java/com/qa/alcohol/ProjectApplication.java
+ create mode 100644 src/main/resources/application.properties
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (main)
+$ git push
+Enumerating objects: 20, done.
+Counting objects: 100% (20/20), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (14/14), done.
+Writing objects: 100% (19/19), 58.74 KiB | 9.79 MiB/s, done.
+Total 19 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/JesseJohal89/Project.git
+   f136f3c..9dc38da  main -> main
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (main)
+$ git checkout -b dev
+Switched to a new branch 'dev'
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (dev)
+$ git push .u/origin
+fatal: '.u/origin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (dev)
+$ git push -u origin dev
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+remote: 
+remote: Create a pull request for 'dev' on GitHub by visiting:
+remote:      https://github.com/JesseJohal89/Project/pull/new/dev
+remote:
+To https://github.com/JesseJohal89/Project.git
+ * [new branch]      dev -> dev
+branch 'dev' set up to track 'origin/dev'.
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (dev)
+$ git checkout -b  persistance
+Switched to a new branch 'persistance'
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (persistance)
+$ ls
+HELP.md  lombok.config  mvnw*  mvnw.cmd  pom.xml  README.md  src/  target/
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (persistance)
+$ git add src/
+main/ test/ 
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (persistance)
+$ git add src/main/
+java/      resources/ 
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (persistance)
+$ git add src/main/java/com/qa/alcohol/
+config/      persistance/ rest/        service/     
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (persistance)
+$ git add src/main/java/com/qa/alcohol/persistance/
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (persistance)
+$ git status
+On branch persistance
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   src/main/java/com/qa/alcohol/persistance/domain/CraftBeer.java
+        new file:   src/main/java/com/qa/alcohol/persistance/enums/Container.java
+        new file:   src/main/java/com/qa/alcohol/persistance/exceptions/CraftBeerNotFoundException.java
+        new file:   src/main/java/com/qa/alcohol/persistance/repository/CraftBeerRepo.java
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        lombok.config
+        src/main/java/com/qa/alcohol/config/
+        src/main/java/com/qa/alcohol/rest/
+        src/main/java/com/qa/alcohol/service/
+        src/main/resources/CraftBeer-data.sql
+        src/main/resources/CraftBeer-schema.sql
+        src/test/
+
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (persistance)
+$ git commit -m "persistance"
+[persistance 44c74e5] persistance
+ 4 files changed, 112 insertions(+)
+ create mode 100644 src/main/java/com/qa/alcohol/persistance/domain/CraftBeer.java
+ create mode 100644 src/main/java/com/qa/alcohol/persistance/enums/Container.java
+ create mode 100644 src/main/java/com/qa/alcohol/persistance/exceptions/CraftBeerNotFoundException.java
+ create mode 100644 src/main/java/com/qa/alcohol/persistance/repository/CraftBeerRepo.java
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (persistance)
+$ git push -u origin persistance
+Enumerating objects: 24, done.
+Counting objects: 100% (24/24), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (10/10), done.
+Writing objects: 100% (17/17), 2.12 KiB | 1.06 MiB/s, done.
+Total 17 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote: 
+remote: Create a pull request for 'persistance' on GitHub by visiting:
+remote:      https://github.com/JesseJohal89/Project/pull/new/persistance
+remote:
+To https://github.com/JesseJohal89/Project.git
+ * [new branch]      persistance -> persistance
+branch 'persistance' set up to track 'origin/persistance'.
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (persistance)
+$ git checkout dev
+Switched to branch 'dev'
+Your branch is up to date with 'origin/dev'.
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (dev)
+$ git pull
+remote: Enumerating objects: 1, done.
+remote: Counting objects: 100% (1/1), done.
+remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (1/1), 622 bytes | 311.00 KiB/s, done.
+From https://github.com/JesseJohal89/Project
+   9dc38da..b7aacf6  dev        -> origin/dev
+Updating 9dc38da..b7aacf6
+Fast-forward
+ .../qa/alcohol/persistance/domain/CraftBeer.java   | 58 ++++++++++++++++++++++
+ .../qa/alcohol/persistance/enums/Container.java    |  7 +++
+ .../exceptions/CraftBeerNotFoundException.java     | 14 ++++++
+ .../persistance/repository/CraftBeerRepo.java      | 33 ++++++++++++
+ 4 files changed, 112 insertions(+)
+ create mode 100644 src/main/java/com/qa/alcohol/persistance/domain/CraftBeer.java
+ create mode 100644 src/main/java/com/qa/alcohol/persistance/enums/Container.java
+ create mode 100644 src/main/java/com/qa/alcohol/persistance/exceptions/CraftBeerNotFoundException.java
+ create mode 100644 src/main/java/com/qa/alcohol/persistance/repository/CraftBeerRepo.java
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (dev)
+$ git checkout -b rest
+Switched to a new branch 'rest'
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (rest)
+$ ls
+HELP.md  lombok.config  mvnw*  mvnw.cmd  pom.xml  README.md  src/  target/
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (rest)
+$ git add src/
+main/ test/ 
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (rest)
+$ git add src/main/
+java/      resources/ 
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (rest)
+$ git add src/main/java/com/qa/alcohol/
+config/  rest/    service/ 
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (rest)
+$ git add src/main/java/com/qa/alcohol/rest/
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (rest)
+$ git status
+On branch rest
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   src/main/java/com/qa/alcohol/rest/controller/CraftBeerController.java
+        new file:   src/main/java/com/qa/alcohol/rest/dto/CraftBeerDTO.java
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        lombok.config
+        src/main/java/com/qa/alcohol/config/
+        src/main/java/com/qa/alcohol/service/
+        src/main/resources/CraftBeer-data.sql
+        src/main/resources/CraftBeer-schema.sql
+        src/test/
+
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (rest)
+$ git commit -m "rest"
+[rest 193a006] rest
+ 2 files changed, 91 insertions(+)
+ create mode 100644 src/main/java/com/qa/alcohol/rest/controller/CraftBeerController.java
+ create mode 100644 src/main/java/com/qa/alcohol/rest/dto/CraftBeerDTO.java
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (rest)
+$ git push -u origin rest
+Enumerating objects: 20, done.
+Counting objects: 100% (20/20), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (13/13), 1.48 KiB | 755.00 KiB/s, done.
+Total 13 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+remote: 
+remote: Create a pull request for 'rest' on GitHub by visiting:
+remote:      https://github.com/JesseJohal89/Project/pull/new/rest
+remote:
+To https://github.com/JesseJohal89/Project.git
+ * [new branch]      rest -> rest
+branch 'rest' set up to track 'origin/rest'.
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (rest)
+$ git checkout dev
+Switched to branch 'dev'
+Your branch is up to date with 'origin/dev'.
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (dev)
+$ git pull
+remote: Enumerating objects: 1, done.
+remote: Counting objects: 100% (1/1), done.
+remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (1/1), 617 bytes | 205.00 KiB/s, done.
+From https://github.com/JesseJohal89/Project
+   b7aacf6..10f0175  dev        -> origin/dev
+Updating b7aacf6..10f0175
+Fast-forward
+ .../rest/controller/CraftBeerController.java       | 68 ++++++++++++++++++++++
+ .../java/com/qa/alcohol/rest/dto/CraftBeerDTO.java | 23 ++++++++
+ 2 files changed, 91 insertions(+)
+ create mode 100644 src/main/java/com/qa/alcohol/rest/controller/CraftBeerController.java
+ create mode 100644 src/main/java/com/qa/alcohol/rest/dto/CraftBeerDTO.java
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (dev)
+$ git checkout -b service
+Switched to a new branch 'service'
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (service)
+$ ls
+HELP.md  lombok.config  mvnw*  mvnw.cmd  pom.xml  README.md  src/  target/
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (service)
+$ git add src/main/java/com/qa/alcohol/service
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (service)
+$ git status
+On branch service
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   src/main/java/com/qa/alcohol/service/CraftBeerService.java
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        lombok.config
+        src/main/java/com/qa/alcohol/config/
+        src/main/resources/CraftBeer-data.sql
+        src/main/resources/CraftBeer-schema.sql
+        src/test/
+
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (service)
+$ git commit -m "service"
+[service b269dbc] service
+ 1 file changed, 73 insertions(+)
+ create mode 100644 src/main/java/com/qa/alcohol/service/CraftBeerService.java
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (service)
+$ git push -u origin service
+Enumerating objects: 17, done.
+Counting objects: 100% (17/17), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (10/10), 1.26 KiB | 1.26 MiB/s, done.
+Total 10 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+remote: 
+remote: Create a pull request for 'service' on GitHub by visiting:
+remote:      https://github.com/JesseJohal89/Project/pull/new/service
+remote:
+To https://github.com/JesseJohal89/Project.git
+ * [new branch]      service -> service
+branch 'service' set up to track 'origin/service'.
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (service)
+$ git checkout dev
+Switched to branch 'dev'
+Your branch is up to date with 'origin/dev'.
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (dev)
+$ git branch
+* dev
+  main
+  persistance
+  rest
+  service
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (dev)
+$ git pull
+remote: Enumerating objects: 1, done.
+remote: Counting objects: 100% (1/1), done.
+remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (1/1), 619 bytes | 309.00 KiB/s, done.
+From https://github.com/JesseJohal89/Project
+   10f0175..66a95d5  dev        -> origin/dev
+Updating 10f0175..66a95d5
+Fast-forward
+ .../com/qa/alcohol/service/CraftBeerService.java   | 73 ++++++++++++++++++++++
+ 1 file changed, 73 insertions(+)
+ create mode 100644 src/main/java/com/qa/alcohol/service/CraftBeerService.java
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (dev)
+$ git checkout -b config
+Switched to a new branch 'config'
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (config)
+$ git add src/main/java/com/qa/alcohol/config
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (config)
+$ git status
+On branch config
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   src/main/java/com/qa/alcohol/config/AppConfig.java
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        lombok.config
+        src/main/resources/CraftBeer-data.sql
+        src/main/resources/CraftBeer-schema.sql
+        src/test/
+
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (config)
+$ git commit -m "config"
+[config 4cdcc59] config
+ 1 file changed, 15 insertions(+)
+ create mode 100644 src/main/java/com/qa/alcohol/config/AppConfig.java
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (config)
+$ git push -u origin config
+Enumerating objects: 17, done.
+Counting objects: 100% (17/17), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (10/10), 767 bytes | 767.00 KiB/s, done.
+Total 10 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+remote: 
+remote: Create a pull request for 'config' on GitHub by visiting:
+remote:      https://github.com/JesseJohal89/Project/pull/new/config
+remote:
+To https://github.com/JesseJohal89/Project.git
+ * [new branch]      config -> config
+branch 'config' set up to track 'origin/config'.
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (config)
+$ git checkout dev
+Switched to branch 'dev'
+Your branch is up to date with 'origin/dev'.
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (dev)
+$ git pull
+remote: Enumerating objects: 1, done.
+remote: Counting objects: 100% (1/1), done.
+remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (1/1), 619 bytes | 206.00 KiB/s, done.
+From https://github.com/JesseJohal89/Project
+   66a95d5..d5f624b  dev        -> origin/dev
+Updating 66a95d5..d5f624b
+Fast-forward
+ src/main/java/com/qa/alcohol/config/AppConfig.java | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
+ create mode 100644 src/main/java/com/qa/alcohol/config/AppConfig.java
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (dev)
+$ ls
+HELP.md  lombok.config  mvnw*  mvnw.cmd  pom.xml  README.md  src/  target/
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (dev)
+$ git add lombok.config 
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (dev)
+$ git status
+On branch dev
+Your branch is up to date with 'origin/dev'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   lombok.config
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        src/main/resources/CraftBeer-data.sql
+        src/main/resources/CraftBeer-schema.sql
+        src/test/
+
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (dev)
+$ git commit -m "lombok config"
+[dev 3d180a1] lombok config
+ 1 file changed, 2 insertions(+)
+ create mode 100644 lombok.config
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (dev)
+$ git push origin dev
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 334 bytes | 334.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/JesseJohal89/Project.git
+   d5f624b..3d180a1  dev -> dev
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (dev)
+$ git checkout -b testing
+Switched to a new branch 'testing'
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (testing)
+$ ls
+HELP.md  lombok.config  mvnw*  mvnw.cmd  pom.xml  README.md  src/  target/
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (testing)
+$ git add src/main/resources/CraftBeer-data.sql
+warning: in the working copy of 'src/main/resources/CraftBeer-data.sql', LF will be replaced by CRLF the next time Git touches it
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (testing)
+$ ^C
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (testing)
+$ git add src/main/resources/CraftBeer-data.sql
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (testing)
+$ git add src/test
+warning: in the working copy of 'src/test/java/com/qa/alcohol/ProjectApplicationTests.java', LF will be replaced by CRLF the next time Git touches it
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (testing)
+$ git status
+On branch testing
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   src/main/resources/CraftBeer-data.sql
+        new file:   src/test/java/com/qa/alcohol/CraftBeerIntegrationTest.java
+        new file:   src/test/java/com/qa/alcohol/CraftBeerUnitTest.java
+        new file:   src/test/java/com/qa/alcohol/ProjectApplicationTests.java
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        src/main/resources/CraftBeer-schema.sql
+
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (testing)
+$ git add src/main/resources/CraftBeer-schema.sql
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (testing)
+$ git status
+On branch testing
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   src/main/resources/CraftBeer-data.sql
+        new file:   src/main/resources/CraftBeer-schema.sql
+        new file:   src/test/java/com/qa/alcohol/CraftBeerIntegrationTest.java
+        new file:   src/test/java/com/qa/alcohol/CraftBeerUnitTest.java
+        new file:   src/test/java/com/qa/alcohol/ProjectApplicationTests.java
+
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (testing)
+$ git commit -m "testing WIP1"
+[testing 9a67fa6] testing WIP1
+ 5 files changed, 228 insertions(+)
+ create mode 100644 src/main/resources/CraftBeer-data.sql
+ create mode 100644 src/main/resources/CraftBeer-schema.sql
+ create mode 100644 src/test/java/com/qa/alcohol/CraftBeerIntegrationTest.java
+ create mode 100644 src/test/java/com/qa/alcohol/CraftBeerUnitTest.java
+ create mode 100644 src/test/java/com/qa/alcohol/ProjectApplicationTests.java
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (testing)
+$ git push origin testing
+Enumerating objects: 19, done.
+Counting objects: 100% (19/19), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (11/11), done.
+Writing objects: 100% (15/15), 2.98 KiB | 1016.00 KiB/s, done.
+Total 15 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote: 
+remote: Create a pull request for 'testing' on GitHub by visiting:
+remote:      https://github.com/JesseJohal89/Project/pull/new/testing
+remote:
+To https://github.com/JesseJohal89/Project.git
+ * [new branch]      testing -> testing
+
+jesse@DESKTOP-N18QR5S MINGW64 ~/Documents/workspace-spring-tool-suite-4-4.16.0.RELEASE/Project (testing)
+$
+```
