@@ -150,6 +150,10 @@ trello end
 ![trello 2](https://user-images.githubusercontent.com/111985454/200035332-a1124192-2165-401d-b78c-ceb5b67727ab.JPG)
 
 ## MISC.
+
+##### UML DIAGRAMS
+![uml cropped](https://user-images.githubusercontent.com/111985454/200205821-2b48f3b3-1df7-42a4-80c1-37efe36c200c.jpg)
+
 ##### error on testing, had to disable created enum
 ![error on testing for had to disable enum](https://user-images.githubusercontent.com/111985454/200037078-14a95d3c-5efc-439b-b3e4-687642b6f40c.JPG)
 
